@@ -4,110 +4,50 @@ using UnityEngine;
 
 public class ControlesTaxi : MonoBehaviour
 {
+    float velMaxima = 10f;// Máxima velocidad que puede alcanzar el auto al acelerar
+    float aceleracion = 7f;// Indice que indica cuanto se tiene que mover el auto 
+    float velRotacion = 2f; //Velocidad de rotacion 
+    
+    Rigidbody2D rb;
 
-    private float aceleracion;
-    private float velocidad;
-    //la dirección se define así:
-    //0 = sur
-    //1 = este
-    //2 = norte
-    //3 = oeste
-    private int direccion;
-    private float anguloRotacion = 0.0f;
+    float x;// para girar el auto a la derecha o a la izquierda
+    float y;// para controlar la velocidad del auto (acelerar o frenar)
 
-    // Esta función se llama cuando comienza el juego
-    void Start()
-    {
-        aceleracion = 5.0f;
-        direccion = 0;
+    void Start(){
+    	rb = GetComponent<Rigidbody2D>();
+
     }
 
-    // Esta función se va a llamar una vez por frame
-    // Por defecto unity estaría llamando 60 veces por segundo
-    void Update()
-    {
-        Vector3 posicion = transform.position;
-        //Vector3 rotacion = transform.Rotation;
+    void Update(){
 
-        velocidad = Input.GetAxis("Vertical") * aceleracion;
-        //transform.Rotate(0,0,-aceleracion);
+    	x = Input.GetAxis("Horizontal");
+    	y = Input.GetAxis("Vertical");
 
+    	Vector2 movimiento = transform.up * (y * aceleracion);
+    	rb.AddForce(movimiento);
 
-        float horizontalValue = Input.GetAxis("Horizontal");
-        float verticalValue = Input.GetAxis("Vertical");
- 
-        //mover auto hacia adelante
-        //Input.GetKey("up")
-        //transform.position.y <= 4.5f && 
-        if (Input.GetKey("w")){
-            if(direccion == 0){
-                posicion.y -= aceleracion * Time.deltaTime ;
-            }
-            if(direccion == 1){
-                posicion.x += aceleracion * Time.deltaTime;
-            }
-            if(direccion == 2){
-                posicion.y += aceleracion * Time.deltaTime;
-            }
-            if(direccion == 3){
-                posicion.x -= aceleracion * Time.deltaTime;
-            }
-            //posicion.y += aceleracion * Time.deltaTime;
-        }
+    	float direction = Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.up));
 
-        //mover auto hacia atras
-        //Input.GetKey("down")
-        //transform.position.y >= -4.5f &&
-        if (Input.GetKey("s")){
-            if(direccion == 0){
-                posicion.y += aceleracion * Time.deltaTime;
-            }
-            if(direccion == 1){
-                posicion.x -= aceleracion * Time.deltaTime;
-            }
-            if(direccion == 2){
-                posicion.y -= aceleracion * Time.deltaTime;
-            }
-            if(direccion == 3){
-                posicion.x += aceleracion * Time.deltaTime;
-            }
-            //posicion.y -= aceleracion * Time.deltaTime;
-        }
+    	if (aceleracion > 0){
+    		if(direction > 0){
+    			rb.rotation -= x * velRotacion * (rb.velocity.magnitude / velMaxima);
+    		}
+    		else{
+    			rb.rotation += x * velRotacion * (rb.velocity.magnitude / velMaxima);
+    		}
+    	}
 
-        //mover auto hacia la derecha
-        //Input.GetKey("right")
-        //
-        if (Input.GetKey("d")){
-            if (anguloRotacion >= 0.0f && anguloRotacion < 90.0f){
-                //anguloRotacion += 0.05f;
-                //transform.Rotate(0,0,anguloRotacion);
-            }
-            if (anguloRotacion <= 180.0f && anguloRotacion >= 90.0f){
-                //anguloRotacion -= 0.05f;
-                //transform.Rotate(0,0,anguloRotacion);
-            }
-            posicion.x += aceleracion * Time.deltaTime;
-            //posicion.x += aceleracion * Time.deltaTime;
-        }
+    	float driftForce = Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.left)) * 2.0f;
 
-        //mover auto hacia la izquierda
-        //Input.GetKey("left")
-        //transform.position.x >= -7.5f &&
-        if (Input.GetKey("a")){
-            if (anguloRotacion <= 0.0f && anguloRotacion >= -90.0f){
-                //anguloRotacion -= 0.05f;
-                //transform.Rotate(0,0,anguloRotacion);
-            }
-            if (anguloRotacion >= 180.0f && anguloRotacion < -90.0f){
-                //anguloRotacion += 0.05f;
-                //transform.Rotate(0,0,anguloRotacion);
-            }
-            posicion.x -= aceleracion * Time.deltaTime;
+    	Vector2 relativeForce = Vector2.right * driftForce;
 
-            //posicion.x -= aceleracion * Time.deltaTime;
-        }
+    	rb.AddForce(rb.GetRelativeVector(relativeForce));
 
-        transform.position = posicion;
+    	if(rb.velocity.magnitude > velMaxima){
+    		rb.velocity = rb.velocity.normalized * velMaxima;
+    	}
+
+    	//Debug.DrawLine(rb.position, rb.GetRelativePoint(relativeForce), Color.green);
     }
 }
 
