@@ -20,7 +20,7 @@ public class plataforma_ini : MonoBehaviour
 
         tiempoViaje = GameObject.Find("Contador").GetComponent<Contador_viaje>();
         
-        if (col.gameObject.name == "auto rojo"){
+        if (col.gameObject.name == "auto rojo"){    
             tiempoViaje.encenderTimer();
         }
     }
