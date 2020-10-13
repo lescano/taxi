@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class plataforma_ini : MonoBehaviour
 {
-    public GameObject go;
     public Contador_viaje tiempoViaje;
+    public GameObject marcador_ini;
 
-    void start(){
-        /*
-        print("Hola2: ");
-        Debug.Log("Inicio Timer2222");
-        GameObject go = GameObject.Find("auto rojo");
-        print("Hola: " + go);
-        */
+    void Start(){
+        marcador_ini = GameObject.Find("inicioMarker");   
     }
 
     void OnTriggerEnter2D(Collider2D col){
-
-        tiempoViaje = GameObject.Find("Contador").GetComponent<Contador_viaje>();
         
-        if (col.gameObject.name == "auto rojo"){    
-            tiempoViaje.encenderTimer();
+        tiempoViaje = GameObject.Find("Contador").GetComponent<Contador_viaje>();
+        if (col.gameObject.name == "auto rojo" && tiempoViaje.isInicio(this.gameObject.name)){    
+            tiempoViaje.iniciarViaje();
+            resetMarcadorIni();
         }
+    }
+
+    public void setMarcadorIni(){
+        marcador_ini.transform.position = this.gameObject.transform.position;
+    }
+
+    public void resetMarcadorIni(){
+        marcador_ini.transform.position =  new Vector3(-24, 17, -1);
     }
 }
