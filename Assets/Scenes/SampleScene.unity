@@ -213,6 +213,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 847167237}
   - {fileID: 1869235984}
   - {fileID: 1753161502}
   - {fileID: 1798094031}
@@ -220,6 +221,7 @@ RectTransform:
   - {fileID: 1942415957}
   - {fileID: 2060858445}
   - {fileID: 2075012602}
+  - {fileID: 1327171708}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,10 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &271251353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -422,10 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &405286307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -620,7 +618,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -798,10 +796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &800948048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -900,6 +896,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &847167236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 847167237}
+  - component: {fileID: 847167239}
+  - component: {fileID: 847167238}
+  m_Layer: 5
+  m_Name: Tiempo_nitro2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &847167237
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847167236}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 168328641}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -240, y: -105}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &847167238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847167236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: --
+--- !u!222 &847167239
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847167236}
+  m_CullTransparentMesh: 0
 --- !u!850595691 &943750667
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1075,8 +1150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acea8e94e49d4454d89dd3fc9ad6937c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
+  marcador_ini: {fileID: 0}
 --- !u!50 &991030989
 Rigidbody2D:
   serializedVersion: 4
@@ -1235,10 +1310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1164644143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1383,10 +1456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1182549540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1532,10 +1603,13 @@ MonoBehaviour:
   Tiempo_restante: {fileID: 0}
   const_tiempo_reset: 320
   timer: 320
-  id_destino: 0
+  Destinos: []
+  Inicios: []
   destino_object: {fileID: 0}
+  inicio_object: {fileID: 0}
   msg_iu: {fileID: 0}
   msg_time: 0
+  status: {fileID: 0}
 --- !u!1 &1237015948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,10 +1656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1237015951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1684,6 +1756,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1327171707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1327171708}
+  - component: {fileID: 1327171710}
+  - component: {fileID: 1327171709}
+  m_Layer: 5
+  m_Name: Tiempo_nitro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1327171708
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327171707}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 168328641}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -298, y: -105}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1327171709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327171707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Nitro: '
+--- !u!222 &1327171710
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327171707}
+  m_CullTransparentMesh: 0
 --- !u!1 &1706515600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,10 +1915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1710604370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1910,7 +2059,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1972,6 +2121,7 @@ GameObject:
   - component: {fileID: 1760167565}
   - component: {fileID: 1760167566}
   - component: {fileID: 1760167567}
+  - component: {fileID: 1760167568}
   m_Layer: 0
   m_Name: auto rojo
   m_TagString: Untagged
@@ -2019,7 +2169,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0129a2bedf6ef3e51bbe4f8da6e466f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 562509976739871f9b2c860a3ffe7ce3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2056,6 +2206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91849955f49872fe28c6bc731748f11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempo_nitro: {fileID: 0}
+  mensaje_nitro: {fileID: 0}
+  tiempoEsperaNitro: 30
 --- !u!50 &1760167566
 Rigidbody2D:
   serializedVersion: 4
@@ -2122,6 +2275,18 @@ PolygonCollider2D:
       - {x: 0.77, y: -2.25}
       - {x: 1.1, y: -1.91}
       - {x: 1.0699999, y: -0.52}
+--- !u!114 &1760167568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760167562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb467a044613e45ecaae635c3487e599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798094030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,7 +2317,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2271,7 +2436,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2352,10 +2517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1875140404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2514,10 +2677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &1897096386
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2646,7 +2807,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2725,7 +2886,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2804,7 +2965,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168328641}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2899,10 +3060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37e6faaff2ed6248a03a7afaf32e123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   tiempoViaje: {fileID: 0}
-  status: {fileID: 0}
-  marcador: {fileID: 0}
+  marcador_fin: {fileID: 0}
 --- !u!61 &2081302831
 BoxCollider2D:
   m_ObjectHideFlags: 0

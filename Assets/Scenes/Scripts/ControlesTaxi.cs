@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlesTaxi : MonoBehaviour
 {
-    float velMaxima = 10f;// Máxima velocidad que puede alcanzar el auto al acelerar
-    float aceleracion = 7f;// Indice que indica cuanto se tiene que mover el auto 
-    float velRotacion = 2f; //Velocidad de rotacion 
-    
+    //Velocidades del auto
+    private float velMaxima = 10f;// Máxima velocidad que puede alcanzar el auto al acelerar
+    private float aceleracion = 7f;// Indice que indica cuanto se tiene que mover el auto 
+    private float velRotacion = 2f; //Velocidad de rotacion 
+
+    //Datos habilidad nitro
+    private float tiempoNitro = 10.0f; //tiempo que está activado el nitro
+    private bool activarNitro = false;
+    public Text tiempo_nitro;
+    public Text mensaje_nitro;
+    public float tiempoEsperaNitro = 30.0f;
+    private bool activarTiempoEsperaNitro = false;
+
+
     Rigidbody2D rb;
 
     float x;// para girar el auto a la derecha o a la izquierda
@@ -15,7 +26,8 @@ public class ControlesTaxi : MonoBehaviour
 
     void Start(){
     	rb = GetComponent<Rigidbody2D>();
-
+        tiempo_nitro = GameObject.Find("Canvas/Tiempo_nitro2").GetComponent<UnityEngine.UI.Text>();
+        mensaje_nitro = GameObject.Find("Canvas/Tiempo_nitro").GetComponent<UnityEngine.UI.Text>();
     }
 
     void Update(){
@@ -47,8 +59,57 @@ public class ControlesTaxi : MonoBehaviour
     		rb.velocity = rb.velocity.normalized * velMaxima;
     	}
 
-    	//Debug.DrawLine(rb.position, rb.GetRelativePoint(relativeForce), Color.green);
+        if (Input.GetKey("z")){
+            if (!activarNitro && tiempoEsperaNitro==30.0f){
+                Nitro();
+            }
+
+        }
+
+        if(activarNitro){
+            tiempo_nitro.text = tiempoNitro.ToString("f0");
+            tiempoNitro -= Time.deltaTime;
+        }
+        
+
+        if (activarTiempoEsperaNitro){
+
+            mensaje_nitro.text = "Nitro en "+tiempoEsperaNitro.ToString("f0");
+            tiempo_nitro.text = "";
+            tiempoEsperaNitro -= Time.deltaTime;
+        }
+
+        if(activarNitro&&tiempoNitro<= 0.0f){
+            
+            velMaxima = 10f;
+            aceleracion = 7f;
+            velRotacion = 2f;
+
+            activarNitro = false;
+            tiempoNitro = 10.0f;
+            tiempo_nitro.text = "--";
+            activarTiempoEsperaNitro = true;
+        }
+
+        if (tiempoEsperaNitro<= 0.0f){
+            activarTiempoEsperaNitro = false;
+            tiempoEsperaNitro = 30.0f;
+            mensaje_nitro.text = "Nitro:";
+            tiempo_nitro.text = "--";
+        }
+
     }
+
+    public void Nitro(){
+        if ( activarNitro == false){
+            activarNitro = true;
+
+            velMaxima = 20f;
+            aceleracion = 14f;
+            velRotacion = 4f;
+        }
+    }
+
 }
 
 
